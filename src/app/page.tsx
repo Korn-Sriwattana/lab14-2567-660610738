@@ -6,7 +6,10 @@ import {
   Title, 
   Rating, 
   Textarea,
-  Button
+  Button,
+  Divider,
+  Group,
+  Pagination
 } from "@mantine/core";
 import { useState } from 'react';
 export default function Home() {
@@ -16,6 +19,7 @@ export default function Home() {
   return (
     <>
     <Container size="600px">
+
       <Title order={2}>Food Review 🍕</Title>
       <Space h="sm"/>
       <Title order={4}>Your rating</Title>
@@ -24,16 +28,46 @@ export default function Home() {
         onChange={setValue} 
         defaultValue={0} 
         size="28.5px"/>
-      <Space h="md"/>
+
       <Textarea
       label="Your review"
       placeholder="Do you enjoy eating?"
+      // size="sm"
+      mt="sm"
+      rows={3}
+      
       />
-      <Button variant="filled" color="orange">
+
+      <Button 
+        variant="filled" 
+        color="orange"
+        size="sm"
+        mt="sm"
+        >
         Submit Review
       </Button>
 
-      <Text ta="center" my="md">
+      <Group grow>
+        <Divider my="sm" />
+      </Group>
+
+      <Group justify="center" >
+        <Title order={4}>Elon Musk</Title>
+        <Rating value={5} readOnly/>
+      </Group>
+      <Text ta="center" c="dimmed" fz="15">Best pizza in this world. I give you X score.</Text>
+      <Divider my="sm" />
+      <Group justify="center" >
+        <Title order={4}>Mark Zuck</Title>
+        <Rating value={4} readOnly/>
+      </Group>
+      <Text ta="center" c="dimmed" fz="15">My favourite part is peporoni</Text>
+      
+      <Group justify="center" my="sm">
+        <Pagination total={20} color="orange" ></Pagination>
+      </Group>
+      
+      <Text ta="center" my="md" c="dimmed">
         Copyright © 2024 Korn Sriwattana 660610738
       </Text>
     </Container>
